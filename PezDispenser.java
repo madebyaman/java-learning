@@ -16,7 +16,11 @@ class PezDispenser {
   }
 
   public void fill(int amount) {
-    this.pezCount += amount;
+    int totalAmount = this.pezCount + amount;
+    if (totalAmount > MAX_PEZ) {
+      throw new IllegalArgumentException("Whoa too many PEZ!!!");
+    }
+    this.pezCount = totalAmount;
   }
 
   public boolean isEmpty() {
